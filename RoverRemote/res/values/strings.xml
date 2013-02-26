@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">RoverRemote</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="headline">Rover Remote</string>
+    <string name="enterip">Car\'s IP Address:</string>
+    <string name="start">Start Remote!</string>
+    <string name="title_activity_remote">RemoteActivity</string>
+    <string name="server_test">Well, we got here and stuff!</string>
+    <string name="startJs">Start Remote</string>
+
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.jimmyblaze.roverremote.JoystickView
+        android:id="@+id/joystickView"
+        android:layout_width="175dip"
+        android:layout_height="175dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dip" />
+
+    <TableLayout android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+		android:layout_marginTop="10dip">
+		<TableRow>
+			<TextView android:text="X" android:layout_width="50dip"
+				android:layout_height="wrap_content"></TextView>
+			<TextView android:text="" android:id="@+id/TextViewX"
+				android:layout_width="100dip" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+		<TableRow>
+			<TextView android:text="Y" android:layout_width="wrap_content"
+				android:layout_height="wrap_content"></TextView>
+			<TextView android:text="" android:id="@+id/TextViewY"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+	</TableLayout>
+</LinearLayout>

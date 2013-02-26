@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">RoverServer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="headline">Rover Server</string>
+    <string name="enter_ip">The car\'s IP Address is:</string>
+    <string name="startSkype">Start Skype Call!</string>
+    <string name="title_activity_server">ServerActivity</string>
+    <string name="startServ">Start Service!</string>
+    <string name="skypeName">Skype Username</string>
+
+</resources>
