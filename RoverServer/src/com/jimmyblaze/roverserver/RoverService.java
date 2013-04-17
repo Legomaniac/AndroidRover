@@ -61,27 +61,27 @@ public class RoverService extends IOIOService {
 			@Override
 			protected void setup() throws ConnectionLostException,InterruptedException 
 			{
-				ch1pwm = ioio_.openPwmOutput(3, 50);
-				ch2pwm = ioio_.openPwmOutput(4, 50);
+				ch1pwm = ioio_.openPwmOutput(11, 50);
+				ch2pwm = ioio_.openPwmOutput(7, 50);
 				ch3pwm = ioio_.openPwmOutput(5, 50);
-				ch4pwm = ioio_.openPwmOutput(6, 50);
+				ch4pwm = ioio_.openPwmOutput(3, 50);
 				
-				servoA = ioio_.openPwmOutput(48, 50);
-				servoB = ioio_.openPwmOutput(47, 50);
+				servoA = ioio_.openPwmOutput(1, 50);
+				servoB = ioio_.openPwmOutput(2, 50);
 				
-				ch1dir = ioio_.openDigitalOutput(22);
-				ch2dir = ioio_.openDigitalOutput(23);
-				ch3dir = ioio_.openDigitalOutput(24);
-				ch4dir = ioio_.openDigitalOutput(25);
+				ch1dir = ioio_.openDigitalOutput(12);
+				ch2dir = ioio_.openDigitalOutput(10);
+				ch3dir = ioio_.openDigitalOutput(6);
+				ch4dir = ioio_.openDigitalOutput(4);
 				
-				encA2 = ioio_.openDigitalInput(7);
-				encA1 = ioio_.openDigitalInput(10);
-				encB2 = ioio_.openDigitalInput(11);
-				encB1 = ioio_.openDigitalInput(12);
-				encC2 = ioio_.openDigitalInput(13);
-				encC1 = ioio_.openDigitalInput(14);
-				encD2 = ioio_.openDigitalInput(18);
-				encD1 = ioio_.openDigitalInput(19);
+				encA2 = ioio_.openDigitalInput(23);
+				encA1 = ioio_.openDigitalInput(22);
+				encB2 = ioio_.openDigitalInput(21);
+				encB1 = ioio_.openDigitalInput(20);
+				encC2 = ioio_.openDigitalInput(19);
+				encC1 = ioio_.openDigitalInput(18);
+				encD2 = ioio_.openDigitalInput(14);
+				encD1 = ioio_.openDigitalInput(13);
 			}
 
 			@Override
