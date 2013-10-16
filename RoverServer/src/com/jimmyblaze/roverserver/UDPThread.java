@@ -13,10 +13,11 @@ public class UDPThread implements Runnable {
 	private int rightXIn;
 	private int leftXIn;
 	private int leftYIn;
+	private int panTiltIn;
 
 	//UDP variables
 	int thePort = 9002;
-	byte[] incomingBytes = new byte[4];
+	byte[] incomingBytes = new byte[5];
 	DatagramSocket s;
 	DatagramPacket p;
 
@@ -66,11 +67,13 @@ public class UDPThread implements Runnable {
 			rightYIn = (int)incomingBytes[1];
 			leftXIn = (int)incomingBytes[2];
 			leftYIn = (int)incomingBytes[3];
+			panTiltIn = (int)incomingBytes[4];
 			
 //			Log.d("UDP Receive: ", "rightXVal: " + rightXIn);
 //		    Log.d("UDP Receive: ", "rightYVal: " + rightYIn);
 //			Log.d("UDP Receive: ", "leftXVal: " + leftXIn);
 //			Log.d("UDP Receive: ", "leftYVal: " + leftYIn);
+//			Log.d("UDP Receive: ", "panTiltVal: " + panTiltIn);
 			
     		Thread.sleep(30);    		
 		}
@@ -94,5 +97,13 @@ public class UDPThread implements Runnable {
 	public int getLeftY()
 	{
 		return leftYIn;
+	}
+	
+	public boolean getPanTilt()
+	{
+		if (panTiltIn == 0)
+			return false;
+		else
+			return true;
 	}
 }

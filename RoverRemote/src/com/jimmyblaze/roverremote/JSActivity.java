@@ -14,16 +14,20 @@ import com.jimmyblaze.roverremote.JoystickMovedListener;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
+import android.view.KeyEvent;
 import android.widget.TextView;
 
 
-public class JSActivity extends Activity {
+public class JSActivity extends Activity  { //implements SensorEventListener
 
 	TextView txtX1, txtY1;
 	TextView txtX2, txtY2;
 	DualJoystickView joystick;
 	private String ip;
 	private UDPThread udpThread;
+	private boolean panTiltActive;
+
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class JSActivity extends Activity {
         joystick = (DualJoystickView)findViewById(R.id.dualjoystickView);
         
         joystick.setOnJostickMovedListener(_listenerLeft, _listenerRight);
+        
 	}
 
     private JoystickMovedListener _listenerLeft = new JoystickMovedListener() {
@@ -93,5 +98,18 @@ public class JSActivity extends Activity {
 			udpThread.setRightX(0);
 			udpThread.setRightY(0);
 		};
-	}; 
+	};
+	
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_VOLUME_UP && panTiltActive == false) {
+			panTiltActive = true;
+			udpThread.setPanTilt(panTiltActive);
+		}
+		else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP && panTiltActive == true) {
+			panTiltActive = false;
+			udpThread.setPanTilt(panTiltActive);
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
 }

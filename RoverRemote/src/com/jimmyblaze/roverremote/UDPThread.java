@@ -16,10 +16,11 @@ public class UDPThread implements Runnable {
 	private int rightY = 0;
 	private int leftX = 0;
 	private int leftY = 0;
+	private int panTilt = 0;
 	
 	//UDP variables
 	int thePort = 9002;
-	byte[] outgoingBytes = new byte[4];
+	byte[] outgoingBytes = new byte[5];
 	DatagramSocket s;
 	DatagramPacket p;
 	InetAddress carAddr;
@@ -75,6 +76,7 @@ public class UDPThread implements Runnable {
 			outgoingBytes[1] = (byte) rightY;
 			outgoingBytes[2] = (byte) leftX;
 			outgoingBytes[3] = (byte) leftY;
+			outgoingBytes[4] = (byte) panTilt;
 			
 			p = new DatagramPacket(outgoingBytes, outgoingBytes.length, carAddr, thePort);
 			
@@ -102,5 +104,13 @@ public class UDPThread implements Runnable {
 	public void setLeftY(int inLeftY)
 	{
 		leftY = inLeftY;
+	}
+	
+	public void setPanTilt(boolean inPanTilt)
+	{
+		if (inPanTilt == false)
+			panTilt = 0;
+		else
+			panTilt = 1;
 	}
 }

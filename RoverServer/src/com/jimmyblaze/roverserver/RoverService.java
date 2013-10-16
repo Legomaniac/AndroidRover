@@ -29,6 +29,7 @@ public class RoverService extends IOIOService {
 	private float rearLeft;
 	private float rearRight;
 	private float max;
+	private boolean panTiltActive;
 	private UDPThread udpThread;
 	private int NOTIFICATION_ID = 1;
 
@@ -90,13 +91,20 @@ public class RoverService extends IOIOService {
 				rightYVal = ((float)udpThread.getRightY())/127;
 				leftXVal = ((float)udpThread.getLeftX())/127;
 				leftYVal = ((float)udpThread.getLeftY())/127;
+				panTiltActive = udpThread.getPanTilt();
 				
 				// Motor control logic section
 			
 				// For 2 joysticks controlling drive
 				forwardBack = -rightYVal;
 				leftRight = rightXVal;
-				spin = leftXVal;
+				if (!panTiltActive)
+					spin = leftXVal;
+				else
+				{
+					servoA.setDutyCycle(0.05f + ((leftYVal+1)/2) * 0.05f);
+					servoB.setDutyCycle((1.0f + ((leftXVal+1)/2)) * 0.05f);
+				}
 				
 				// Front Left
 				frontLeft = forwardBack + spin + leftRight;
